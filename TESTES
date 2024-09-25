@@ -1,0 +1,170 @@
+// PRIMEIRO TESTE
+
+function isFibonacci(num) {
+    let a = 0; // Primeiro número da sequência
+    let b = 1; // Segundo número da sequência
+
+    // Se o número for 0, já pertence à sequência
+    if (num === 0) return true;
+
+    // Enquanto o próximo número da sequência for menor que o número informado
+    while (b < num) {
+        let temp = b;  // Guarda o valor atual de b
+        b = a + b;     // Calcula o próximo número da sequência
+        a = temp;      // Atualiza a para o último número
+    }
+
+    // Retorna true se o número informado é igual a b (número da sequência)
+    return b === num;
+}
+
+// Função para solicitar o número ao usuário
+function getUserInput() {
+    // Solicita ao usuário um número e converte para um inteiro
+    const input = prompt("Informe um número para verificar se pertence à sequência de Fibonacci:");
+    const number = parseInt(input);
+
+    // Verifica se a conversão é válida
+    if (isNaN(number)) {
+        console.log("Por favor, informe um número válido.");
+        return;
+    }
+
+    // Verifica se o número pertence à sequência de Fibonacci
+    if (isFibonacci(number)) {
+        console.log(`${number} pertence à sequência de Fibonacci.`);
+    } else {
+        console.log(`${number} não pertence à sequência de Fibonacci.`);
+    }
+}
+
+// Chama a função para solicitar a entrada do usuário
+getUserInput();
+
+const number = 21; // Defina o número desejado aqui
+
+
+
+// SEGUNDO TESTE 
+
+function countLetterA(str) {
+    const regex = /a/gi; // 'g' para encontrar todas as ocorrências, 'i' para ignorar case
+    const matches = str.match(regex); // Encontra todas as ocorrências da letra 'a'
+    const count = matches ? matches.length : 0; // Conta quantas vezes 'a' aparece
+
+    // Exibe o resultado
+    console.log(`A letra 'a' aparece ${count} vez(es) na string: "${str}"`);
+}
+
+// Função para solicitar a string ao usuário
+function getUserInput() {
+    // Solicita ao usuário uma string
+    const input = prompt("Informe uma string para verificar a quantidade de 'a's:");
+    
+    // Chama a função para contar a letra 'a'
+    countLetterA(input);
+}
+
+// Chamada da função para solicitar a entrada do usuário
+getUserInput();
+
+// Se preferir definir a string diretamente no código, você pode usar:
+// const inputString = "A rápida raposa marrom salta sobre o cão preguiçoso.";
+// countLetterA(inputString);
+
+
+
+// TERCEIRO TESTE 
+
+let INDICE = 12; // Definindo o índice
+let SOMA = 0;    // Inicializando a soma
+let K = 1;       // Inicializando K
+
+// Laço enquanto K for menor que INDICE
+while (K < INDICE) {
+    K = K + 1;      // Incrementa K
+    SOMA = SOMA + K; // Adiciona K à SOMA
+}
+
+// Exibe o resultado final da SOMA
+console.log(SOMA); // O valor final da SOMA será 77
+
+
+// QUARTO TESTE 
+
+// a) 1, 3, 5, 7, ___
+const seqA = [1, 3, 5, 7];
+const nextA = seqA[seqA.length - 1] + 2; // Próximo elemento
+console.log(`a) Próximo elemento: ${nextA}`); // 9
+
+// b) 2, 4, 8, 16, 32, 64, ____
+const seqB = [2, 4, 8, 16, 32, 64];
+const nextB = seqB[seqB.length - 1] * 2; // Próximo elemento
+console.log(`b) Próximo elemento: ${nextB}`); // 128
+
+// c) 0, 1, 4, 9, 16, 25, 36, ____
+const seqC = [0, 1, 4, 9, 16, 25, 36];
+const nextC = Math.pow(seqC.length, 2); // Próximo elemento (7²)
+console.log(`c) Próximo elemento: ${nextC}`); // 49
+
+// d) 4, 16, 36, 64, ____
+const seqD = [4, 16, 36, 64];
+const nextD = Math.pow((seqD.length + 1) * 2, 2); // Próximo elemento (10²)
+console.log(`d) Próximo elemento: ${nextD}`); // 100
+
+// e) 1, 1, 2, 3, 5, 8, ____
+const seqE = [1, 1, 2, 3, 5, 8];
+const nextE = seqE[seqE.length - 1] + seqE[seqE.length - 2]; // Próximo elemento
+console.log(`e) Próximo elemento: ${nextE}`); // 13
+
+// f) 2, 10, 12, 16, 17, 18, 19, ____
+const seqF = [2, 10, 12, 16, 17, 18, 19];
+const nextF = seqF[seqF.length - 1] + 1; // Próximo elemento
+console.log(`f) Próximo elemento: ${nextF}`); // 20
+
+
+// QUINTO TESTE 
+
+// Função para simular a lógica de identificação das lâmpadas
+function identificarLamps() {
+    // Inicializando o estado das lâmpadas
+    let lamps = {
+        lamp1: { estado: 'desligada', temperatura: 'fria' },
+        lamp2: { estado: 'desligada', temperatura: 'fria' },
+        lamp3: { estado: 'desligada', temperatura: 'fria' }
+    };
+
+    // Ligando o primeiro interruptor
+    lamps.lamp1.estado = 'ligada';
+    
+    // Simulando o tempo em que a lâmpada está ligada (5 minutos)
+    // Depois de um tempo, desligamos o primeiro interruptor
+    lamps.lamp1.estado = 'desligada'; // Desliga
+    lamps.lamp1.temperatura = 'quente'; // Torna-se quente
+
+    // Ligando o segundo interruptor
+    lamps.lamp2.estado = 'ligada';
+
+    // A terceira lâmpada permanece desligada e fria
+    lamps.lamp3.estado = 'desligada';
+    
+    // Simulando a observação das lâmpadas
+    console.log("Observando as lâmpadas:");
+    console.log(`Lampada 1: ${lamps.lamp1.estado}, Temperatura: ${lamps.lamp1.temperatura}`);
+    console.log(`Lampada 2: ${lamps.lamp2.estado}, Temperatura: ${lamps.lamp2.temperatura}`);
+    console.log(`Lampada 3: ${lamps.lamp3.estado}, Temperatura: ${lamps.lamp3.temperatura}`);
+
+    // Identificando os interruptores
+    let resultado = {
+        primeiro: lamps.lamp1.temperatura === 'quente' ? 'Lampada 1' : 'Lampada 3',
+        segundo: lamps.lamp2.estado === 'ligada' ? 'Lampada 2' : 'Desconhecida',
+        terceiro: lamps.lamp1.temperatura === 'fria' ? 'Lampada 3' : 'Lampada 1'
+    };
+
+    console.log(`Primeiro Interruptor controla: ${resultado.primeiro}`);
+    console.log(`Segundo Interruptor controla: ${resultado.segundo}`);
+    console.log(`Terceiro Interruptor controla: ${resultado.terceiro}`);
+}
+
+// Chamada da função para identificar as lâmpadas
+identificarLamps();
